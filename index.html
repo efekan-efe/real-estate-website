@@ -4,148 +4,278 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New Listing Dubai</title>
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet" />
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              navy: "#191c29",
-              "navy-dark": "#151823",
-              "blue-accent": "#0056b3",
-            },
-          },
-        },
-      };
-    </script>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-
-      body {
-        font-family: "Poppins", sans-serif;
-      }
-
-      .hero-section {
-        background-image: url("/images/banner.jpg");
-        background-size: cover;
-        background-position: center;
-      }
       .aboutBg {
         background-color: #030101bd;
         background-image: url(/images/about_background.jpg);
         background-repeat: no-repeat;
         background-size: 100% auto;
       }
-      .sectionDivider {
-        background-image: url(/images/sectionDividerBanner.jpg);
+      .homepageSectionDivider {
+        background-image: url(/images/homepage_page_divider_bg.jpg);
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
       }
+      .buttonContainer button {
+        display: inline-block;
+        position: relative;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        cursor: pointer;
+        padding: 17px 50px 20px 50px;
+      }
+      .buttonContainer button::before,
+      .buttonContainer button::after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        transition: all 0.4s linear;
+        background: #000;
+      }
+      .buttonContainer button,
+      .buttonContainer button:after,
+      .buttonContainer button:before {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
+      .buttonContainer span::before,
+      .buttonContainer span::after {
+        content: "";
+        width: 2px;
+        height: 100%;
+        position: absolute;
+        transition: all 0.2s linear;
+        background: #000;
+      }
+      .buttonContainer button:hover::before,
+      .buttonContainer button:hover::after {
+        width: 0px;
+      }
+      .buttonContainer button:hover span::before,
+      .buttonContainer button:hover span::after {
+        height: 0%;
+      }
+      .btn-6::before {
+        left: 0%;
+        top: 0;
+        transition-duration: 0.4s;
+      }
+      .btn-6::after {
+        left: 0%;
+        bottom: 0;
+        transition-duration: 0.4s;
+      }
+      .btn-6 span::before {
+        left: 0;
+        top: 0%;
+        transition-duration: 0.4s;
+      }
+      .btn-6 span::after {
+        right: 0;
+        top: 0%;
+        transition-duration: 0.4s;
+      }
+      .btn-6:hover::before,
+      .btn-6:hover::after {
+        left: 0;
+      }
+      .btn-6:hover span::before,
+      .btn-6:hover span::after {
+        top: 0;
+      }
+      .homepageButtonContainer span::before,
+      .homepageButtonContainer span::after {
+        background-color: #fff;
+      }
+      .homepageButtonContainer button::before,
+      .homepageButtonContainer button::after {
+        background-color: #fff;
+      }
     </style>
   </head>
   <body class="bg-white">
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center px-5 min-h-[90px] bg-[#11111f] bg-opacity-50 fixed top-0 left-0 w-full z-50 max-sm:gap-5">
+      <div class="max-w-7">
+        <img class="w-full" src="/images/search.png" alt="search" />
+      </div>
+      <div class="flex justify-center items-center gap-5">
+        <ul class="flex justify-start items-center max-lg:hidden">
+          <a href="/" class="text-white text-2xl px-4">Anasayfa</a>
+          <a href="/" class="text-white text-2xl px-4">Hakkımızda</a>
+          <a href="/" class="text-white text-2xl px-4">Gayrimenkul</a>
+        </ul>
+        <div class="max-w-[300px]">
+          <img class="w-full" src="/images/logo.webp" alt="" />
+        </div>
+        <ul class="flex justify-start items-center max-lg:hidden">
+          <a href="/" class="text-white text-2xl px-4">Bizimle Çalışın</a>
+          <a href="/" class="text-white text-2xl px-4">Neden Dubai</a>
+          <a href="/" class="text-white text-2xl px-4">İletişim</a>
+        </ul>
+      </div>
+      <div class="max-w-7">
+        <img class="w-full" src="/images/hamburger_menu.png" alt="hamburger_menu" />
+      </div>
+    </nav>
+
     <!-- Hero Section -->
-    <section class="hero-section text-white text-center py-24 min-h-[520px] flex justify-center items-center">
-      <div>
-        <h1 class="text-4xl mb-2">HAKKIMIZDA</h1>
-        <div class="flex justify-center">
-          <i class="fas fa-chevron-down text-2xl mt-4"></i>
+    <section class="h-screen relative max-lg:max-h-[400px] max-md:max-h-screen">
+      <div class="swiper homepageSlider h-full">
+        <div class="swiper-wrapper h-full">
+          <div class="swiper-slide max-h-screen h-full overflow-hidden">
+            <img class="w-full h-full object-cover" src="/images/slider_1.jpg" alt="" />
+          </div>
+          <div class="swiper-slide max-h-screen overflow-hidden">
+            <img class="w-full h-full object-cover" src="/images/slider_2.jpg" alt="" />
+          </div>
+          <div class="swiper-slide max-h-screen overflow-hidden">
+            <img class="w-full h-full object-cover" src="/images/slider_3.jpg" alt="" />
+          </div>
         </div>
-        <!-- Breadcrumbs -->
-        <div class="mt-12">
-          <p class="text-sm">Home » Hakkimizda</p>
-        </div>
+        <div class="swiper-pagination"></div>
       </div>
     </section>
 
-    <!-- About Desc -->
-
-    <section class="bg-white p-[100px] max-lg:px-0 max-md:pt-[70px] max-md:pb-4">
-      <div class="mx-auto max-w-[1140px]">
-        <p class="text-center leading-relaxed text-xl text-[#555555] p-2.5 italic max-md:text-base max-md:leading-8">
-          ❝ New Listing Dubai olarak vizyonumuz, Dubai’de gayrimenkul danışmanlığı alanında lider olmak ve müşterilerimize unutulmaz bir deneyim yaşatmaktır. Sektördeki trendleri takip ederek yenilikçi çözümler sunmayı ve müşterilerimizin
-          ihtiyaçlarını aşmak için tutkuyla çalışmayı hedefliyoruz. Gayrimenkul yolculuğunda güvenilir bir ortak olarak, müşterilerimize değer katmayı, yatırımlarını en üst düzeye çıkarmayı ve gelecekte sürdürülebilir başarı sağlamayı hedefliyoruz.
-          Gayrimenkul hedeflerinizi gerçeğe dönüştürmek için New Listing Dubai ile çalışmaktan heyecan duyuyoruz.❞
-        </p>
+    <!-- Cards -->
+    <section class="max-w-[1400px] mx-auto px-11 my-5 mb-20 text-center">
+      <div class="flex flex-col gap-4">
+        <h3 class="text-5xl font-semibold">New <span class="text-[#245C9C] text-4xl font-[Amaranth] italic font-normal inline-block">Listing</span> Dubai</h3>
+        <h5 class="text-3xl font-semibold">Diğer Lüks Emlaklarımızı Keşfedin</h5>
+        <p class="text-[#585367] max-w-[400px] mx-auto mb-10">Dubai'nin merkezinde eşsiz gayrimenkul fırsatları ve daha fazlası için hazır mısınız?</p>
+      </div>
+      <div class="propertyCards grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-md:grid-cols-1 max-md:place-items-center">
+        <!-- Card #1 -->
       </div>
     </section>
 
     <!-- About Section -->
     <section class="relative pb-20">
       <div class="aboutBg absolute w-full h-full z-0 opacity-15 top-10 max-md:hidden"></div>
-      <div class="flex flex-col md:flex-row items-start gap-12 mx-auto max-w-[1440px] z-10 relative bg-white">
-        <div class="w-full max-w-[504px] max-md:p-2">
+      <div class="flex flex-col md:flex-row items-start gap-12 mx-auto max-w-[1330px] z-10 relative bg-white">
+        <div class="w-full max-w-[504px] max-md:p-2 max-md:max-w-full">
           <img src="/images/about_img.jpg" alt="Dubai Skyline" class="w-full" />
         </div>
         <div class="w-full">
           <div class="mb-10 max-md:p-2">
             <h2 class="text-6xl font-semibold relative w-fit">
-              New Listing <span class="w-12 h-1 bg-[#FF3A84] absolute -bottom-1 left-0"></span> <span class="absolute -bottom-8 right-0 text-2xl italic font-medium text-[#245C9C] font-[Amaranth]">D u b a i</span>
+              New Listing
+              <div class="w-12 h-1 bg-[#FF3A84] absolute -bottom-1 left-0"></div>
+              <span class="absolute -bottom-8 right-0 text-2xl italic font-medium text-[#245C9C] font-[Amaranth] pr-0">D u b a i</span>
             </h2>
           </div>
 
           <div class="text-[#333] flex flex-col gap-4 max-md:p-2">
-            <p class="text-lg max-md:text-sm">
+            <p class="text-lg max-md:text-md">
               New Listing Dubai olarak, Dubai’nin en prestijli bölgelerinde benzersiz lüks gayrimenkul danışmanlığı hizmetleri sunuyoruz. Ahmet Bayram ve Alena Bayram tarafından kurulan şirketimiz, Dubai’nin büyüleyici gayrimenkul dünyasında yatırım
               yapmak isteyen seçkin müşterilerimize en iyi fırsatları sunmaya kendini adamıştır. Yenilikçi yaklaşımımız ve sektördeki derin tecrübemizle her müşterimizin ihtiyaçlarına en uygun çözümleri buluyor ve beklentilerini en üst düzeyde
               karşılıyoruz.
             </p>
 
-            <p class="text-lg max-md:text-sm">
+            <p class="text-lg max-md:text-md">
               Misyonumuz, müşterilerimize gayrimenkul yatırımlarında profesyonel rehberlik sağlayarak doğru kararlar almalarına yardımcı olmaktır. Lüks konutlardan göz alıcı villalara, ticari gayrimenkullerden yatırım fırsatlarına kadar,
               müşterilerimizin Dubai’nin sunduklarından en iyi şekilde yararlanmalarına yardımcı olmak için geniş bir portföy sunuyoruz. Her adımda müşterilerimizin hayallerini gerçeğe dönüştürmek için çabalıyoruz.
             </p>
 
-            <p class="text-lg max-md:text-sm">
+            <p class="text-lg max-md:text-md">
               New Listing Dubai’de dürüstlük, güven ve mükemmellik ilkeleriyle hareket ediyoruz. Müşteri memnuniyetini listemizin en başına koyuyor ve her bireyin özel gereksinimlerine göre kişiselleştirilmiş çözümler üretiyoruz. Dubai’nin hızla
               büyüyen emlak piyasasında lider olma hedefimizle, müşterilerimize dünya standartlarında hizmet sunmaya devam edeceğiz.
             </p>
+          </div>
+          <div class="w-fit buttonContainer flex justify-start items-center gap-5 mt-5 max-md:flex-col max-md:justify-center max-md:w-full">
+            <button class="btn-6 p-5 w-fit">
+              <span class="text-black font-bold text-base"> DAHA FAZLA BİLGİ EDİN</span>
+            </button>
+            <button class="btn-6 p-5 w-fit"><span class="text-black font-bold text-base">EKİBİMİZ</span></button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Banner Section -->
-    <section class="sectionDivider min-h-[542px] text-center text-white flex justify-center items-center relative max-md:min-h-0">
-      <div class="bg-[linear-gradient(268deg,#7A7A7A_0%,#11111F_76%)] opacity-90 absolute w-full h-full z-10 top-0 left-0"></div>
-      <div class="relative z-20 flex gap-8 flex-wrap justify-center max-md:text-center max-md:py-[100px] max-md:px-4 max-md:gap-3">
-        <span class="tracking-[1rem] text-xl max-md:text-base max-md:tracking-[0.5rem]">BİZİ</span>
-        <span class="tracking-[1rem] text-xl max-md:text-base max-md:tracking-[0.5rem]">DAHA</span>
-        <span class="tracking-[1rem] text-xl max-md:text-base max-md:tracking-[0.5rem]">YAKINDAN</span>
-        <span class="tracking-[1rem] text-xl max-md:text-base max-md:tracking-[0.5rem]">TANIYIN</span>
+    <!-- Image Compression -->
+
+    <section class="flex justify-center items-center gap-8 max-w-[1400px] mx-auto mt-20 mb-14 px-5 max-lg:flex-col">
+      <div class="w-full max-w-4xl overflow-hidden shadow-2xl max-lg:max-w-full">
+        <div id="comparison-slider" class="comparison-slider" style="height: 500px; --position: 50%">
+          <div class="before-image">
+            <img src="/images/dubai_left_side.jpg" alt="City skyline at sunset with orange and pink sky" />
+          </div>
+          <div class="after-image">
+            <img src="/images/dubai_right_side.jpg" alt="City skyline during daytime with blue sky" />
+          </div>
+          <div class="slider-handle">
+            <div class="slider-button">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 8l4 4-4 4M7 8l-4 4 4 4"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full flex flex-col gap-3">
+        <h3 class="text-[#FF3A84] text-xl font-bold">Dubai</h3>
+        <h1 class="text-[#11111F] text-5xl font-extrabold">Dubai Şehir Merkezinde Yaşam</h1>
+        <p class="text-xl text-[#333] font-semibold">
+          Dubai, son yıllarda dünyanın en hızlı büyüyen ve en dinamik emlak piyasalarından biri haline geldi. Hem yerli hem de yabancı yatırımcılar için cazip fırsatlar sunan bu şehir, sadece Orta Doğu’nun değil küresel gayrimenkul sektörünün de
+          parlayan yıldızı konumunda.
+        </p>
+        <div class="w-fit buttonContainer flex justify-start items-center gap-5 mt-5">
+          <button class="btn-6 p-5 w-fit">
+            <span class="text-black font-bold text-base">NEDEN DUBAİ?</span>
+          </button>
+        </div>
       </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section class="py-16 bg-white">
-      <div class="max-w-[1140px] mx-auto px-4">
-        <h2 class="text-4xl font-semibold text-center mb-12 max-md:text-2xl">Daha Fazla Bilgi İçin Bize Ulaşın</h2>
-
-        <form class="space-y-4">
-          <div>
-            <input type="text" placeholder="İsim" class="w-full px-4 py-2 border border-gray-300 rounded" />
-          </div>
-          <div>
-            <input type="email" placeholder="E-Posta" class="w-full px-4 py-2 border border-gray-300 rounded" />
-          </div>
-          <div class="flex">
-            <div class="w-10 flex items-center justify-center border border-gray-300 border-r-0 rounded-l">
-              <span class="text-sm">🇹🇷</span>
-            </div>
-            <input type="tel" placeholder="0501 234 56 78" class="flex-1 px-4 py-2 border border-gray-300 rounded-r" />
-          </div>
-          <div>
-            <textarea placeholder="Mesajınız" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded"></textarea>
-          </div>
-
-          <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded font-medium">Gönder</button>
-        </form>
+    <!-- Banner Section -->
+    <section class="homepageSectionDivider bg-fixed min-h-[542px] text-center text-white flex justify-center items-center relative max-md:min-h-0 max-md:py-16">
+      <div class="bg-black opacity-70 absolute w-full h-full z-10 top-0 left-0"></div>
+      <div class="z-20 flex flex-col justify-center items-center gap-5">
+        <h1 class="text-white text-6xl font-extrabold max-md:text-4xl">Dubai Şehir Merkezinde Ev Sahibi Olun</h1>
+        <p class="text-[#FFFFFFCC] text-2xl w-[90%] font-semibold max-md:text-xl">Dubai'de ev almak istiyorsanız doğru yerdesiniz! Eşsiz manzarası, gelişen şehir yapısı ve esnek ödeme planı ile siz de ev sahibi olun.</p>
+        <div class="w-fit buttonContainer homepageButtonContainer flex justify-start items-center gap-5 mt-5">
+          <button class="btn-6 p-5 w-fit">
+            <span class="text-white font-bold text-base">DUBAİ REZİDANSLAR</span>
+          </button>
+        </div>
       </div>
+    </section>
+
+    <!-- Blog Cards -->
+    <section class="max-w-[1120px] mx-auto p-12">
+      <div class="flex flex-col justify-center items-center">
+        <h3 class="text-[#FF3A84] text-2xl font-bold">Blog</h3>
+        <h1 class="text-[#11111F] text-5xl font-extrabold text-center">Dubai Emlak ve Daha Fazlası</h1>
+      </div>
+      <div class="blogCards grid grid-cols-3 gap-5 my-5 max-lg:grid-cols-2 max-md:grid-cols-1 max-md:place-items-center"></div>
+      <div class="w-full buttonContainer flex justify-center items-center gap-5 mt-5">
+        <button class="btn-6 p-5 w-fit">
+          <span class="text-black font-bold text-base">TÜM BLOGLAR</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Social Media Accounts -->
+
+    <section class="max-w-[1120px] mx-auto mb-10">
+      <h1 class="text-[#11111F] text-5xl font-extrabold text-center mb-3">Sosyal Medya Hesaplarımızı Takip Edin</h1>
+      <p class="text-[#585367] font-semibold text-xl text-center max-w-[450px] mx-auto mb-10">Sosyal medya hesaplarımızı takip ediyor ve Dubai'deki eşsiz konutlardan haberdar oluyoruz.</p>
+
+      <div class="socialCards grid grid-cols-3 gap-3 max-lg:grid-cols-2 max-md:grid-cols-1 max-md:place-items-center"></div>
     </section>
 
     <!-- Footer -->
@@ -201,5 +331,22 @@
         </div>
       </div>
     </footer>
+
+    <script src="/app.js"></script>
+    <script>
+      // Initialize Swiper
+      const swiper = new Swiper(".homepageSlider", {
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        loop: true,
+        pagination: false,
+        effect: "fade",
+        fadeEffect: {
+          crossFade: true,
+        },
+      });
+    </script>
   </body>
 </html>
