@@ -13,6 +13,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet" />
     <style>
+      .mobileNavBg {
+        background-color: #fff;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url(/images/mobile_nav_bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
       .aboutBg {
         background-color: #030101bd;
         background-image: url(/images/about_background.jpg);
@@ -109,7 +116,7 @@
   </head>
   <body class="bg-white">
     <!-- Navbar -->
-    <nav class="flex justify-between items-center px-5 min-h-[90px] bg-[#11111f] bg-opacity-50 fixed top-0 left-0 w-full z-50 max-sm:gap-5">
+    <nav class="flex justify-between items-center px-5 min-h-[90px] bg-[#11111f] bg-opacity-50 fixed top-0 left-0 w-full z-40 max-sm:gap-5">
       <div class="max-w-7">
         <img class="w-full" src="/images/search.png" alt="search" />
       </div>
@@ -128,9 +135,37 @@
           <a href="/" class="text-white text-2xl px-4">İletişim</a>
         </ul>
       </div>
-      <div class="max-w-7">
+      <button class="max-w-7 mobileNavButton">
         <img class="w-full" src="/images/hamburger_menu.png" alt="hamburger_menu" />
-      </div>
+      </button>
+    </nav>
+
+    <!-- Mobile Navbar -->
+
+    <nav class="mobileNavBg h-screen z-50 fixed top-0 bg-white w-full flex flex-col justify-center items-center -translate-y-[100%] transition-all duration-500">
+      <button class="mobileNavCloseBtn max-w-6 mb-10">
+        <img class="w-full h-full" src="/images/close.png" alt="close" />
+      </button>
+      <ul class="flex flex-col justify-center items-center gap-5 text-center">
+        <li>
+          <a href="/" class="italic text-3xl font-[Playfair-Display] hover:text-[#32C9D6] transition-all">Ana sayfa</a>
+        </li>
+        <li>
+          <a href="/hakkimizda.html" class="italic text-3xl font-[Playfair-Display] hover:text-[#32C9D6] transition-all">Hakkımızda</a>
+        </li>
+        <li>
+          <a href="/" class="italic text-3xl font-[Playfair-Display] hover:text-[#32C9D6] transition-all">Gayrimenkul</a>
+        </li>
+        <li>
+          <a href="/" class="italic text-3xl font-[Playfair-Display] hover:text-[#32C9D6] transition-all">Neden Dubai</a>
+        </li>
+        <li>
+          <a href="/" class="italic text-3xl font-[Playfair-Display] hover:text-[#32C9D6] transition-all">Bizimle Çalışın</a>
+        </li>
+        <li>
+          <a href="/iletisim.html" class="italic text-3xl font-[Playfair-Display] hover:text-[#32C9D6] transition-all">İletişim</a>
+        </li>
+      </ul>
     </nav>
 
     <!-- Hero Section -->

@@ -49,6 +49,58 @@
     </style>
   </head>
   <body class="bg-white">
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center px-5 min-h-[90px] bg-[#11111f] bg-opacity-50 fixed top-0 left-0 w-full z-40 max-sm:gap-5">
+      <div class="max-w-7">
+        <img class="w-full" src="/images/search.png" alt="search" />
+      </div>
+      <div class="flex justify-center items-center gap-5">
+        <ul class="flex justify-start items-center max-lg:hidden">
+          <a href="/" class="text-white text-2xl px-4">Anasayfa</a>
+          <a href="/" class="text-white text-2xl px-4">Hakkımızda</a>
+          <a href="/" class="text-white text-2xl px-4">Gayrimenkul</a>
+        </ul>
+        <div class="max-w-[300px]">
+          <img class="w-full" src="/images/logo.webp" alt="" />
+        </div>
+        <ul class="flex justify-start items-center max-lg:hidden">
+          <a href="/" class="text-white text-2xl px-4">Bizimle Çalışın</a>
+          <a href="/" class="text-white text-2xl px-4">Neden Dubai</a>
+          <a href="/" class="text-white text-2xl px-4">İletişim</a>
+        </ul>
+      </div>
+      <button class="max-w-7 mobileNavButton">
+        <img class="w-full" src="/images/hamburger_menu.png" alt="hamburger_menu" />
+      </button>
+    </nav>
+
+    <!-- Mobile Navbar -->
+
+    <nav class="mobileNavBg h-screen z-50 fixed top-0 bg-white w-full flex flex-col justify-center items-center -translate-y-[100%] transition-all duration-500">
+      <button class="mobileNavCloseBtn max-w-6 mb-10">
+        <img class="w-full h-full" src="/images/close.png" alt="close" />
+      </button>
+      <ul class="flex flex-col justify-center items-center gap-5 text-center">
+        <li>
+          <a href="/" class="italic text-3xl font-[Playfair-Display] hover:text-[#32C9D6] transition-all">Ana sayfa</a>
+        </li>
+        <li>
+          <a href="/hakkimizda.html" class="italic text-3xl font-[Playfair-Display] hover:text-[#32C9D6] transition-all">Hakkımızda</a>
+        </li>
+        <li>
+          <a href="/" class="italic text-3xl font-[Playfair-Display] hover:text-[#32C9D6] transition-all">Gayrimenkul</a>
+        </li>
+        <li>
+          <a href="/" class="italic text-3xl font-[Playfair-Display] hover:text-[#32C9D6] transition-all">Neden Dubai</a>
+        </li>
+        <li>
+          <a href="/" class="italic text-3xl font-[Playfair-Display] hover:text-[#32C9D6] transition-all">Bizimle Çalışın</a>
+        </li>
+        <li>
+          <a href="/iletisim.html" class="italic text-3xl font-[Playfair-Display] hover:text-[#32C9D6] transition-all">İletişim</a>
+        </li>
+      </ul>
+    </nav>
     <!-- Hero Section -->
     <section class="hero-section text-white text-center py-24 min-h-[520px] flex justify-center items-center">
       <div>

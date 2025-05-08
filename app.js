@@ -305,3 +305,15 @@ socialCards.innerHTML = socialCardData
     `;
   })
   .join("");
+
+const mobileNavCloseBtn = document.querySelector(".mobileNavCloseBtn");
+const mobileNavBg = document.querySelector(".mobileNavBg");
+const mobileNavButton = document.querySelector(".mobileNavButton");
+
+mobileNavButton.addEventListener("click", () => {
+  mobileNavBg.style.transform = "translateY(0%)";
+});
+
+mobileNavCloseBtn.addEventListener("click", () => {
+  mobileNavBg.style.transform = "translateY(-100%)";
+});
